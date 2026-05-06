@@ -10,7 +10,7 @@ package AutoMG;
  */
 import javax.swing.*;
 
-public abstract class Auto {
+public class Auto {
 
     private String marca;
     private String modelo;
