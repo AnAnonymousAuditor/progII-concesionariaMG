@@ -9,7 +9,7 @@ package AutoMG;
  * @author manuel
  */
 public class Motor {
-    private double kilometrosRecorridos;
+    private int kilometrosRecorridos;
     private double cilindrada;
     private double caballosFuerza;
 
@@ -18,7 +18,7 @@ public class Motor {
         else return false;
     }
 
-    public Motor(double km, double caballos, double cilindrada) {
+    public Motor(int km, double caballos, double cilindrada) {
         this.caballosFuerza = caballos;
         this.cilindrada = cilindrada;
         this.kilometrosRecorridos = km;
@@ -30,7 +30,7 @@ public class Motor {
         this.kilometrosRecorridos = 0;
     }
 
-    public double getKilometrosRecorridos() {
+    public int getKilometrosRecorridos() {
         return kilometrosRecorridos;
     }
 
@@ -42,7 +42,7 @@ public class Motor {
         return caballosFuerza;
     }
 
-    public void setKilometrosRecorridos(double kilometrosRecorridos) {
+    public void setKilometrosRecorridos(int kilometrosRecorridos) {
         this.kilometrosRecorridos = kilometrosRecorridos;
     }
 
