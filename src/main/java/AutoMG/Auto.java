@@ -75,7 +75,12 @@ public class Auto {
 
     @Override
     public String toString() {
-        return "Auto{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", motor=" + motor + ", precio=" + precio + '}';
+        return this.getClass() +
+            "\nmarca=" + marca +
+            "\nmodelo=" + modelo +
+            "\ncolor=" + color +
+            "\nmotor=" + motor +
+            "\nprecio=" + precio;
     }
 
     public void mostrarInfo() {

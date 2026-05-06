@@ -27,6 +27,18 @@ public class Main {
 
         mostrardatos(autos);
 
+        Motor mimotor = new Motor(50, 110, 300);
+
+        Auto auto1 = new Auto("vw", "fox", "blanco", mimotor, 1000000);
+        AutoFamiliar autofamiliar1 = new AutoFamiliar(5, 5, "vw", "suran", "negro", mimotor, 1500000);
+        AutoUtilitario autoutilitario1 = new AutoUtilitario(3000, true, "ford", "ranger", "azul", mimotor, 3000000);
+        AutoDeportivo autodeportivo1 = new AutoDeportivo(4.2, true, "ford", "mustang", "rojo", mimotor, 5000000);
+
+        System.out.println(auto1);
+        System.out.println(autofamiliar1);
+        System.out.println(autoutilitario1);
+        System.out.println(autodeportivo1);
+
     }
 
     //ingreso de datos (de motor solo di la opcion de cargar km para hacerla corta)
