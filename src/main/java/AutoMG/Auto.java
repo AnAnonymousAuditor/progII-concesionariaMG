@@ -26,6 +26,9 @@ public class Auto {
 
         if (motor.requiereCambioAceite()) JOptionPane.showMessageDialog(null, "requiere cambio de aceite");
     }
+
+    public Auto() {}
+
     public Auto(String marca, String modelo, String color, Motor motor, double precio) {
         this.marca = marca;
         this.modelo = modelo;
@@ -72,5 +75,18 @@ public class Auto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Auto{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", motor=" + motor + ", precio=" + precio + '}';
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Marca: " + this.marca);
+        System.out.println("Modelo: " + this.modelo);
+        System.out.println("Color: " + this.color);
+        System.out.println("Motor: " + this.motor);
+        System.out.println("Precio: " + this.precio);
     }
 }

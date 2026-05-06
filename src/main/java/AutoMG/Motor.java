@@ -53,4 +53,9 @@ public class Motor {
     public void setCaballosFuerza(double caballosFuerza) {
         this.caballosFuerza = caballosFuerza;
     }
+
+    @Override
+    public String toString() {
+        return "Motor{" + "kilometrosRecorridos=" + kilometrosRecorridos + ", cilindrada=" + cilindrada + ", caballosFuerza=" + caballosFuerza + '}';
+    }
 }
