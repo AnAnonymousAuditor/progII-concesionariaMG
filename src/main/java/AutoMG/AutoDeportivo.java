@@ -16,4 +16,11 @@ public class AutoDeportivo extends Auto {
         this.tiempoAceleracion = tiempoAceleracion;
         this.tieneTurbo = tieneTurbo;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+            "\ntiempoAceleracion=" + tiempoAceleracion +
+            "\ntieneTurbo=" + tieneTurbo;
+    }
 }

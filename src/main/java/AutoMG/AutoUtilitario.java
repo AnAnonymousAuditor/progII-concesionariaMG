@@ -17,4 +17,11 @@ public class AutoUtilitario extends Auto {
         this.es4x4 = es4x4;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+            "\ncapacidadCarga=" + capacidadCarga +
+            "\n es4x4=" + es4x4;
+    }
+
 }

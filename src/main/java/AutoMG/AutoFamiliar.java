@@ -17,4 +17,10 @@ public class AutoFamiliar extends Auto {
         this.cantidadPuertas = cantidadPuertas;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+            "\ncantidadAsientos=" + cantidadAsientos +
+            "\ncantidadPuertas=" + cantidadPuertas;
+    }
 }
