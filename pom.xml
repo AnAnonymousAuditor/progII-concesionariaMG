@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>26</maven.compiler.release>
-        <exec.mainClass>laboratorio2.Main</exec.mainClass>
+        <exec.mainClass>AutoMG.Main</exec.mainClass>
     </properties>
 </project>
