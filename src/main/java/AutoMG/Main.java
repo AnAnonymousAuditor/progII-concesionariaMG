@@ -1,6 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package AutoMG;
 
@@ -18,14 +15,59 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        ArrayList<Auto> autos = new ArrayList<>();
+        ArrayList<Auto> autosStock = new ArrayList<>();
+        ArrayList<Auto> autosVendidos = new ArrayList<>();
+        ArrayList<Administrativo> listaAdministrativos = new ArrayList<>();
+        ArrayList<Vendedor> listaVendedores = new ArrayList<>();
+        
+        //CARGAR GERENTE PARA CARGAR EMPLEADOS
+        Gerente jefe = new Gerente(15000.0, "Mario", "Santos", 11222333, "mario@auto.com", "G01", 80000.0);
+        
+        // GERENTE AGREGA A LAS LISTAS DE EMPLEADO
+        Administrativo admin1 = new Administrativo(5.0, "Pepe", "Argento", 22333444, "pepe@auto.com", "A01", 25000.0);
+        Vendedor vend1 = new Vendedor(0, "Luis", "Mauri", 33444555, "luis@auto.com", "V01", 25000.0);
+        jefe.cargarAdministrativo(listaAdministrativos, admin1);
+        jefe.cargarVendedor(listaVendedores, vend1);
+        
+        // cargar 3 autos distintos con la ayuda de administrativo
+        cargarautos(autosStock, sc, admin1);
+        
+        // SIMULAR AVANCE
+        simularavance(autosStock, sc);
+        
+        //SIMULAR VENTA - MUESTA AUTOS Y ELIGE
+        System.out.println("Seleccione el número de auto a vender:");
 
+        for (int i = 0; i < autosStock.size(); i++) {
+            System.out.println((i + 1) + ". " + autosStock.get(i).getModelo());
+        }
+        int opcion = sc.nextInt();
 
-        cargarautos(autos, sc);
+        if ((opcion -1) >= 0 && (opcion -1) < autosStock.size()) {
+            Auto elegido = autosStock.get((opcion -1));
+            vend1.venderAuto(autosStock, autosVendidos, elegido);
+        } else {
+            System.out.println("Opción inválida.");
+        }
 
-        simularavance(autos, sc);
+        System.out.println("\n--- AUTOS STOCK ---");
+        mostrardatos(autosStock);
+        System.out.println("\n--- AUTOS VENDIDOS ---");
+        mostrardatos(autosVendidos);
+        
+        System.out.println("REPORTE DETALLADO DE EMPLEADOS");
 
-        mostrardatos(autos);
+        System.out.println("GERENCIA");
+        jefe.mostrarInformacion(); 
+
+        System.out.println("\nADMINISTRATIVOS");
+        for (Administrativo a : listaAdministrativos) {
+            a.mostrarInformacion();
+        }
+        System.out.println("\nVENDEDORES");
+        for (Vendedor v : listaVendedores) {
+            v.mostrarInformacion();
+        }
 
         Motor mimotor = new Motor(50, 110, 300);
 
@@ -38,11 +80,10 @@ public class Main {
         System.out.println(autofamiliar1);
         System.out.println(autoutilitario1);
         System.out.println(autodeportivo1);
-
     }
 
     //ingreso de datos (de motor solo di la opcion de cargar km para hacerla corta)
-    public static void cargarautos(ArrayList<Auto> autos, Scanner sc){
+    public static void cargarautos(ArrayList<Auto> autosStock, Scanner sc, Administrativo admin){
 
         String modelo;
         String marca;
@@ -68,11 +109,12 @@ public class Main {
             mimotor.setKilometrosRecorridos(km);
             sc.nextLine();//los nextline son para limpiar el buffer
 
-            autos.add(new Auto(marca, modelo, color, mimotor, precio));
+            Auto nuevoAuto = new Auto(marca, modelo, color, mimotor, precio);
+            admin.cargarAuto(autosStock, nuevoAuto);
         }
     }
 
-    public static void simularavance(ArrayList<Auto> autos, Scanner sc){
+    public static void simularavance(ArrayList<Auto> autosStock, Scanner sc){
 
         int km;
 
@@ -80,23 +122,22 @@ public class Main {
 
             System.out.println("Ingresar nuevos km recorridos por auto " + (i+1) + ":");
             km = sc.nextInt();
-            autos.get(i).avanzar(km);
+            autosStock.get(i).avanzar(km);
             sc.nextLine();
         }
     }
-    public static void mostrardatos(ArrayList<Auto> autos){
+    public static void mostrardatos(ArrayList<Auto> autosStock){
 
-        for (int i = 0; i < CANTAUTOS; i++){
+        for (int i = 0; i < autosStock.size(); i++){
 
             System.out.println("--- Reporte del Auto " + (i+1) + " ---");
-            System.out.println("modelo del auto:" + autos.get(i).getModelo());
-            System.out.println("Color del auto:" + autos.get(i).getColor());
-            System.out.println("Marca del auto:" + autos.get(i).getMarca());
-            System.out.println("Precio del auto:" + autos.get(i).getPrecio());
-            System.out.println("Km recorriodos del auto:" + autos.get(i).getMotor().getKilometrosRecorridos());
-            System.out.println("Cilindraje del auto: " + autos.get(i).getMotor().getCilindrada());
-            System.out.println("Caballos del auto: " + autos.get(i).getMotor().getCaballosFuerza());
+            System.out.println("modelo del auto:" + autosStock.get(i).getModelo());
+            System.out.println("Color del auto:" + autosStock.get(i).getColor());
+            System.out.println("Marca del auto:" + autosStock.get(i).getMarca());
+            System.out.println("Precio del auto:" + autosStock.get(i).getPrecio());
+            System.out.println("Km recorriodos del auto:" + autosStock.get(i).getMotor().getKilometrosRecorridos());
+            System.out.println("Cilindraje del auto: " + autosStock.get(i).getMotor().getCilindrada());
+            System.out.println("Caballos del auto: " + autosStock.get(i).getMotor().getCaballosFuerza());
         }
     }
-
 }
