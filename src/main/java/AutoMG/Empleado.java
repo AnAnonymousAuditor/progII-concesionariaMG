@@ -4,19 +4,16 @@ package AutoMG;
  * @author Gabi
  */
 public abstract class Empleado {
-    
-    public static final double SUELDO_MINIMO = 25000.0;
-    public static final double VALOR_HORA = 1200.0;
-    public static final double VALOR_COMISION = 5000.0;
 
-    
-    private String nombre;
-    private String apellido;
-    private int dni;
-    private String mail;
-    private String codigoEmpleado;
-    private double sueldoBasico;
-    
+    protected static final double SUELDO_MINIMO = 25000.0;
+
+    protected String nombre;
+    protected String apellido;
+    protected int dni;
+    protected String mail;
+    protected String codigoEmpleado;
+    protected double sueldoBasico;
+
     public Empleado(){}
 
     //CONSTRUCTOR
@@ -69,12 +66,12 @@ public abstract class Empleado {
 
     //Metodos
     public abstract double calcularSueldo();
-    
-    void mostrarInformacion() {
-        System.out.println("------------------------------------");
+
+    public void mostrarInformacion() {
         System.out.println("Nombre: " + nombre + " " + apellido);
         System.out.println("DNI: " + dni);
+        System.out.println("E-mail: " + mail);
         System.out.println("Código: " + codigoEmpleado);
-        System.out.println("Sueldo a cobrar: $" + calcularSueldo());
-    }     
+        System.out.println("Sueldo a cobrar: $" + String.format("%,.2f", calcularSueldo()));
+    }
 }

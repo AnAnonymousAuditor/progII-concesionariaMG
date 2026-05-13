@@ -6,8 +6,9 @@ import java.util.ArrayList;
  * @author Gabi
  */
 public class Vendedor extends Empleado{
+    private static final double VALOR_COMISION = 5000.0;
     private int cantVentas;
-    
+
     public Vendedor(){
     }
 
@@ -23,11 +24,17 @@ public class Vendedor extends Empleado{
     public void setCantVentas(int cantVentas) {
         this.cantVentas = cantVentas;
     }
-    
+
     // METODOS
     @Override
     public double calcularSueldo() {
         return cantVentas*VALOR_COMISION;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Cantidad de ventas: " + cantVentas);
     }
 
     public void venderAuto(ArrayList<Auto> autosStock, ArrayList<Auto> autosVendidos, Auto autoAVender) {
@@ -37,8 +44,8 @@ public class Vendedor extends Empleado{
             this.cantVentas++;
             System.out.println("Auto vendido con éxito.");
         } else {
-            System.out.println("El auto no se encuentra en stock.");
+            System.out.println("El auto no se encuentra en el stock.");
         }
     }
-    
+
 }

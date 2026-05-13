@@ -10,7 +10,7 @@ public class Gerente extends Empleado{
 
     public Gerente() {
     }
-    
+
     public Gerente(double bonoAdicional, String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
         super(nombre, apellido, dni, mail, codigoEmpleado, sueldoBasico);
         this.bonoAdicional = bonoAdicional;
@@ -22,13 +22,19 @@ public class Gerente extends Empleado{
     public void setBonoAdicional(double bonoAdicional) {
         this.bonoAdicional = bonoAdicional;
     }
-    
+
     //METODOS
     @Override
     public double calcularSueldo() {
         return getSueldoBasico() + bonoAdicional;
     }
-    
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Bono adicional: $" + String.format("%,.2f", bonoAdicional));
+    }
+
     public void cargarAdministrativo(ArrayList<Administrativo> listaAdministrativos, Administrativo a) {
         listaAdministrativos.add(a);
     }

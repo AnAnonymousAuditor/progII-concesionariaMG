@@ -1,13 +1,15 @@
 package AutoMG;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * @author Gabi
  */
 public class Administrativo extends Empleado{
+    private static final double VALOR_HORA = 1200.0;
     private double horasExtras;
-    
+
     public Administrativo(){
     }
 
@@ -23,15 +25,37 @@ public class Administrativo extends Empleado{
     public void setHorasExtras(double horasExtras) {
         this.horasExtras = horasExtras;
     }
-    
+
     // METODOS
     @Override
     public double calcularSueldo() {
         return SUELDO_MINIMO + (horasExtras*VALOR_HORA);
     }
-    
-    public void cargarAuto(ArrayList<Auto> autosStock, Auto nuevoAuto) {
-    autosStock.add(nuevoAuto);
-    System.out.println("Auto cargado al stock.");
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Horas extra: " + horasExtras);
+    }
+
+    public void cargarAuto(ArrayList<Auto> autosStock) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1) Familiar");
+        System.out.println("2) Utilitario");
+        System.out.println("3) Deportivo");
+        System.out.println("<enter> otro");
+        System.out.print("Tipo de auto a ingresar:");
+        int opt = sc.nextInt();
+        Auto nuevoAuto = switch (opt) {
+            case 1 -> new AutoFamiliar();
+            case 2 -> new AutoUtilitario();
+            case 3 -> new AutoDeportivo();
+            default -> new Auto();
+        };
+        System.out.println("Ingrese datos del auto:");
+        nuevoAuto.cargarDatos(sc);
+        autosStock.add(nuevoAuto);
+        System.out.println("Auto cargado al stock.");
     }
 }
