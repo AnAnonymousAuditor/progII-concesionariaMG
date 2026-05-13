@@ -16,6 +16,14 @@ public class AutoDeportivo extends Auto {
         this.tieneTurbo = tieneTurbo;
     }
 
+    public void activarModoDeportivo() {
+        System.out.println("Modo deportivo activado");
+    }
+
+    public void desactivarModoDeportivo() {
+        System.out.println("Modo deportivo desactivado");
+    }
+
     public double getTiempoAceleracion() {
         return tiempoAceleracion;
     }

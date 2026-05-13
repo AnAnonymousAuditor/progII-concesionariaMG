@@ -16,6 +16,10 @@ public class AutoFamiliar extends Auto {
         this.cantidadPuertas = cantidadPuertas;
     }
 
+    public void rebatirAsientos() {
+        System.out.println("Asientos rebatidos");
+    }
+
     public int getCantidadAsientos() {
         return cantidadAsientos;
     }

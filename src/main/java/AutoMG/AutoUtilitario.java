@@ -16,6 +16,14 @@ public class AutoUtilitario extends Auto {
         this.es4x4 = es4x4;
     }
 
+    public void abrirCajaCarga() {
+        System.out.println("Caja de carga abierta");
+    }
+
+    public void cerrarCajaCarga() {
+        System.out.println("Caja de carga cerrada");
+    }
+
     public int getCapacidadCarga() {
         return capacidadCarga;
     }
