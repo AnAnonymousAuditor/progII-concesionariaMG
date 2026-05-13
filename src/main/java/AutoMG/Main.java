@@ -1,7 +1,6 @@
 
 package AutoMG;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,22 +18,22 @@ public class Main {
         ArrayList<Auto> autosVendidos = new ArrayList<>();
         ArrayList<Administrativo> listaAdministrativos = new ArrayList<>();
         ArrayList<Vendedor> listaVendedores = new ArrayList<>();
-        
+
         //CARGAR GERENTE PARA CARGAR EMPLEADOS
         Gerente jefe = new Gerente(15000.0, "Mario", "Santos", 11222333, "mario@auto.com", "G01", 80000.0);
-        
+
         // GERENTE AGREGA A LAS LISTAS DE EMPLEADO
         Administrativo admin1 = new Administrativo(5.0, "Pepe", "Argento", 22333444, "pepe@auto.com", "A01", 25000.0);
         Vendedor vend1 = new Vendedor(0, "Luis", "Mauri", 33444555, "luis@auto.com", "V01", 25000.0);
         jefe.cargarAdministrativo(listaAdministrativos, admin1);
         jefe.cargarVendedor(listaVendedores, vend1);
-        
+
         // cargar 3 autos distintos con la ayuda de administrativo
         cargarautos(autosStock, sc, admin1);
-        
+
         // SIMULAR AVANCE
         simularavance(autosStock, sc);
-        
+
         //SIMULAR VENTA - MUESTA AUTOS Y ELIGE
         System.out.println("Seleccione el número de auto a vender:");
 
@@ -54,11 +53,11 @@ public class Main {
         mostrardatos(autosStock);
         System.out.println("\n--- AUTOS VENDIDOS ---");
         mostrardatos(autosVendidos);
-        
+
         System.out.println("REPORTE DETALLADO DE EMPLEADOS");
 
         System.out.println("GERENCIA");
-        jefe.mostrarInformacion(); 
+        jefe.mostrarInformacion();
 
         System.out.println("\nADMINISTRATIVOS");
         for (Administrativo a : listaAdministrativos) {
