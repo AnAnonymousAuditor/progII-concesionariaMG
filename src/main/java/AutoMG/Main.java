@@ -12,6 +12,29 @@ public class Main {
 
     static final int CANTAUTOS = 3;
     public static void main(String[] args) {
+        // ---------------- COMIENZO LABORATORIO 3 ----------------
+        ArrayList<Auto> autos = new ArrayList<>();
+
+        Motor motor1 = new Motor(50000, 132, 1.8);
+        Auto auto1 = new Auto("Toyota", "Corolla", "Blanco", motor1, 3000000);
+        autos.add(auto1);
+
+        Motor motor2 = new Motor(120000, 102, 1.6);
+        AutoFamiliar autoFamiliar1 = new AutoFamiliar(5, 5, "vw", "suran", "gris", motor2, 2000000);
+        autos.add(autoFamiliar1);
+
+        Motor motor3 = new Motor(205000, 164, 2.5);
+        AutoUtilitario autoUtilitario1 = new AutoUtilitario(1333, true, "ford", "ranger", "azul", motor3, 1500000);
+        autos.add(autoUtilitario1);
+
+        Motor motor4 = new Motor(0, 492, 5.0);
+        AutoDeportivo autoDeportivo1 = new AutoDeportivo(4.3, false, "ford", "mustang", "negro", motor4, 20000000);
+        autos.add(autoDeportivo1);
+
+        for (Auto auto : autos) {
+            auto.mostrarInfo();
+        }
+        // ---------------- FIN LABORATORIO 3 ---------------------
 
         Scanner sc = new Scanner(System.in);
         ArrayList<Auto> autosStock = new ArrayList<>();
@@ -68,17 +91,6 @@ public class Main {
             v.mostrarInformacion();
         }
 
-        Motor mimotor = new Motor(50, 110, 300);
-
-        Auto auto1 = new Auto("vw", "fox", "blanco", mimotor, 1000000);
-        AutoFamiliar autofamiliar1 = new AutoFamiliar(5, 5, "vw", "suran", "negro", mimotor, 1500000);
-        AutoUtilitario autoutilitario1 = new AutoUtilitario(3000, true, "ford", "ranger", "azul", mimotor, 3000000);
-        AutoDeportivo autodeportivo1 = new AutoDeportivo(4.2, true, "ford", "mustang", "rojo", mimotor, 5000000);
-
-        System.out.println(auto1);
-        System.out.println(autofamiliar1);
-        System.out.println(autoutilitario1);
-        System.out.println(autodeportivo1);
     }
 
     //ingreso de datos (de motor solo di la opcion de cargar km para hacerla corta)
