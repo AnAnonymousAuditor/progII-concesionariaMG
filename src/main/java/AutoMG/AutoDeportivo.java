@@ -1,5 +1,7 @@
 package AutoMG;
 
+import java.util.Scanner;
+
 /**
  *
  * @author manuel
@@ -52,5 +54,15 @@ public class AutoDeportivo extends Auto {
         super.mostrarInfo();
         if (isTieneTurbo()) System.out.println("Con turbo");
         System.out.println(getTiempoAceleracion() + "s de 0 a 100 km/h");
+    }
+
+    @Override
+    public void cargarDatos(Scanner sc) {
+        super.cargarDatos(sc);
+
+        System.out.print("Tiempo de Aceleración 0-100 km/h: ");
+        setTiempoAceleracion(sc.nextDouble());
+        System.out.print("Tiene turbo (y/n): ");
+        setTieneTurbo(sc.next().charAt(0) == 'y');
     }
 }

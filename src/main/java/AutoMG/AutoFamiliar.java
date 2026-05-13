@@ -1,5 +1,7 @@
 package AutoMG;
 
+import java.util.Scanner;
+
 /**
  *
  * @author manuel
@@ -47,5 +49,15 @@ public class AutoFamiliar extends Auto {
     public void mostrarInfo() {
         super.mostrarInfo();
         System.out.println(getCantidadPuertas() + " Puertas, " + getCantidadAsientos() + " Asientos");
+    }
+
+    @Override
+    public void cargarDatos(Scanner sc) {
+        super.cargarDatos(sc);
+
+        System.out.print("Cantidad de asientos: ");
+        setCantidadAsientos(sc.nextInt());
+        System.out.print("Cantidad de puertas: ");
+        setCantidadPuertas(sc.nextInt());
     }
 }

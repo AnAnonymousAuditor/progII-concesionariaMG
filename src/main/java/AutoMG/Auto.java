@@ -1,29 +1,37 @@
 package AutoMG;
 
+
 /**
  *
  * @author manuel
  */
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class Auto {
 
     private String marca;
     private String modelo;
     private String color;
-
+    private double precio;
     private Motor motor;
 
-    private double precio;
+    void avanzar(int km) {
 
-    void avanzar(int km){
+        this.motor.setKilometrosRecorridos(this.motor.getKilometrosRecorridos() + km);
 
-        this.motor.setKilometrosRecorridos(this.motor.getKilometrosRecorridos()+km);
-
-        if (motor.requiereCambioAceite()) JOptionPane.showMessageDialog(null, "requiere cambio de aceite");
+        if (motor.requiereCambioAceite()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Requiere cambio de aceite",
+                getMarca() + " " + getModelo(),
+                JOptionPane.WARNING_MESSAGE
+            );
+        }
     }
 
-    public Auto() {}
+    public Auto() {
+    }
 
     public Auto(String marca, String modelo, String color, Motor motor, double precio) {
         this.marca = marca;
@@ -76,11 +84,11 @@ public class Auto {
     @Override
     public String toString() {
         return this.getClass() +
-            "\nmarca=" + marca +
-            "\nmodelo=" + modelo +
-            "\ncolor=" + color +
-            "\nmotor=" + motor +
-            "\nprecio=" + precio;
+                "\nmarca=" + marca +
+                "\nmodelo=" + modelo +
+                "\ncolor=" + color +
+                "\nmotor=" + motor +
+                "\nprecio=" + precio;
     }
 
     public void mostrarInfo() {
@@ -89,5 +97,24 @@ public class Auto {
         System.out.println(String.format("%,d", m.getKilometrosRecorridos()) + " km");
         System.out.println("$" + String.format("%,.2f", getPrecio()));
         System.out.println("Motor " + m.getCilindrada() + "L, " + m.getCaballosFuerza() + " HP");
+    }
+
+    public void cargarDatos(Scanner sc) {
+        Motor m = new Motor();
+
+        System.out.print("Marca del auto: ");
+        setMarca(sc.nextLine());
+        System.out.print("Modelo del auto: ");
+        setModelo(sc.nextLine());
+        System.out.print("Color del auto: ");
+        setColor(sc.nextLine());
+        System.out.print("Precio del auto: ");
+        setPrecio(sc.nextDouble());
+        System.out.print("Cilindrada del motor: ");
+        m.setCilindrada(sc.nextDouble());
+        System.out.print("Potencia del motor: ");
+        m.setCaballosFuerza(sc.nextInt());
+        System.out.print("Km recorridos del auto:");
+        m.setKilometrosRecorridos(sc.nextInt());
     }
 }

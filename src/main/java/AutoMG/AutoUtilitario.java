@@ -1,5 +1,7 @@
 package AutoMG;
 
+import java.util.Scanner;
+
 /**
  *
  * @author manuel
@@ -52,5 +54,15 @@ public class AutoUtilitario extends Auto {
         super.mostrarInfo();
         if (es4x4) System.out.println("4x4");
         System.out.println("Hasta " + getCapacidadCarga() + "kg de carga");
+    }
+
+    @Override
+    public void cargarDatos(Scanner sc) {
+        super.cargarDatos(sc);
+
+        System.out.print("Capacidad de carga: ");
+        setCapacidadCarga(sc.nextInt());
+        System.out.print("Es 4x4 (y/n)): ");
+        setEs4x4(sc.next().charAt(0) == 'y');
     }
 }
