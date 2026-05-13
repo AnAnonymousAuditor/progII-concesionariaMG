@@ -5,11 +5,10 @@ package AutoMG;
  * @author manuel
  */
 public class AutoUtilitario extends Auto {
-    private int capacidadCarga;
+    private int capacidadCarga; // kg
     private boolean es4x4;
 
-    public AutoUtilitario() {
-    }
+    public AutoUtilitario() {}
 
     public AutoUtilitario(int capacidadCarga, boolean es4x4, String marca, String modelo, String color, Motor motor, double precio) {
         super(marca, modelo, color, motor, precio);
@@ -40,4 +39,10 @@ public class AutoUtilitario extends Auto {
             "\n es4x4=" + es4x4;
     }
 
+    @Override
+    public void mostrarInfo() {
+        super.mostrarInfo();
+        if (es4x4) System.out.println("4x4");
+        System.out.println("Hasta " + getCapacidadCarga() + "kg de carga");
+    }
 }

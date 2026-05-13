@@ -5,8 +5,7 @@ package AutoMG;
  * @author manuel
  */
 public class AutoDeportivo extends Auto {
-    // Tiempo en segundos de 0 a 100 km/h
-    private double tiempoAceleracion;
+    private double tiempoAceleracion; // Tiempo en segundos de 0 a 100 km/h
     private boolean tieneTurbo;
 
     public AutoDeportivo() {}
@@ -38,5 +37,12 @@ public class AutoDeportivo extends Auto {
         return super.toString() +
             "\ntiempoAceleracion=" + tiempoAceleracion +
             "\ntieneTurbo=" + tieneTurbo;
+    }
+
+    @Override
+    public void mostrarInfo() {
+        super.mostrarInfo();
+        if (isTieneTurbo()) System.out.println("Con turbo");
+        System.out.println(getTiempoAceleracion() + "s de 0 a 100 km/h");
     }
 }

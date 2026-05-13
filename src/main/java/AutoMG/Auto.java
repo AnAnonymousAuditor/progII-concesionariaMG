@@ -84,9 +84,10 @@ public class Auto {
     }
 
     public void mostrarInfo() {
+        Motor m = getMotor();
         System.out.println(getMarca() + " " + getModelo() + " (" + getColor() + ")");
-        System.out.println(String.format("%,d", motor.getKilometrosRecorridos()) + " km");
+        System.out.println(String.format("%,d", m.getKilometrosRecorridos()) + " km");
         System.out.println("$" + String.format("%,.2f", getPrecio()));
-        System.out.println("Motor " + motor.getCilindrada() + "L, " + motor.getCaballosFuerza() + " HP");
+        System.out.println("Motor " + m.getCilindrada() + "L, " + m.getCaballosFuerza() + " HP");
     }
 }
