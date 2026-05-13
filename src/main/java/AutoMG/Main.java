@@ -12,29 +12,38 @@ public class Main {
 
     static final int CANTAUTOS = 3;
     public static void main(String[] args) {
-        // ---------------- COMIENZO LABORATORIO 3 ----------------
+
         ArrayList<Auto> autos = new ArrayList<>();
 
-        Motor motor1 = new Motor(50000, 132, 1.8);
+        Motor motor1 = new Motor(70000, 132, 1.8);
         Auto auto1 = new Auto("Toyota", "Corolla", "Blanco", motor1, 3000000);
         autos.add(auto1);
 
         Motor motor2 = new Motor(120000, 102, 1.6);
-        AutoFamiliar autoFamiliar1 = new AutoFamiliar(5, 5, "vw", "suran", "gris", motor2, 2000000);
+        AutoFamiliar autoFamiliar1 = new AutoFamiliar(5, 5, "VW", "Suran", "Gris", motor2, 2000000);
         autos.add(autoFamiliar1);
 
         Motor motor3 = new Motor(205000, 164, 2.5);
-        AutoUtilitario autoUtilitario1 = new AutoUtilitario(1333, true, "ford", "ranger", "azul", motor3, 1500000);
+        AutoUtilitario autoUtilitario1 = new AutoUtilitario(1333, true, "Ford", "Ranger", "Azul", motor3, 1500000);
         autos.add(autoUtilitario1);
 
         Motor motor4 = new Motor(0, 492, 5.0);
-        AutoDeportivo autoDeportivo1 = new AutoDeportivo(4.3, false, "ford", "mustang", "negro", motor4, 20000000);
+        AutoDeportivo autoDeportivo1 = new AutoDeportivo(4.3, false, "Ford", "Mustang", "Negro", motor4, 20000000);
         autos.add(autoDeportivo1);
 
         for (Auto auto : autos) {
             auto.mostrarInfo();
         }
-        // ---------------- FIN LABORATORIO 3 ---------------------
+
+        auto1.avanzar(40000);
+        autoFamiliar1.avanzar(20000);
+        autoUtilitario1.avanzar(60000);
+        autoDeportivo1.avanzar(5000);
+
+        for (Auto auto : autos) {
+            auto.mostrarInfo();
+        }
+
 
         Scanner sc = new Scanner(System.in);
         ArrayList<Auto> autosStock = new ArrayList<>();
@@ -55,7 +64,7 @@ public class Main {
         cargarautos(autosStock, sc, admin1);
 
         // SIMULAR AVANCE
-        simularavance(autosStock, sc);
+        simularAvance(autosStock, sc);
 
         //SIMULAR VENTA - MUESTA AUTOS Y ELIGE
         System.out.println("Seleccione el número de auto a vender:");
@@ -73,9 +82,9 @@ public class Main {
         }
 
         System.out.println("\n--- AUTOS STOCK ---");
-        mostrardatos(autosStock);
+        mostrarDatos(autosStock);
         System.out.println("\n--- AUTOS VENDIDOS ---");
-        mostrardatos(autosVendidos);
+        mostrarDatos(autosVendidos);
 
         System.out.println("REPORTE DETALLADO DE EMPLEADOS");
 
@@ -125,30 +134,24 @@ public class Main {
         }
     }
 
-    public static void simularavance(ArrayList<Auto> autosStock, Scanner sc){
+    public static void simularAvance(ArrayList<Auto> autosStock, Scanner sc){
 
         int km;
 
-        for (int i = 0; i < CANTAUTOS; i++){
-
-            System.out.println("Ingresar nuevos km recorridos por auto " + (i+1) + ":");
+        for (Auto auto : autosStock) {
+            System.out.println("Ingresar nuevos km recorridos por " + auto.getMarca() + auto.getModelo() + ":");
             km = sc.nextInt();
-            autosStock.get(i).avanzar(km);
+            auto.avanzar(km);
             sc.nextLine();
         }
     }
-    public static void mostrardatos(ArrayList<Auto> autosStock){
 
-        for (int i = 0; i < autosStock.size(); i++){
+    public static void mostrarDatos(ArrayList<Auto> autosStock){
 
-            System.out.println("--- Reporte del Auto " + (i+1) + " ---");
-            System.out.println("modelo del auto:" + autosStock.get(i).getModelo());
-            System.out.println("Color del auto:" + autosStock.get(i).getColor());
-            System.out.println("Marca del auto:" + autosStock.get(i).getMarca());
-            System.out.println("Precio del auto:" + autosStock.get(i).getPrecio());
-            System.out.println("Km recorriodos del auto:" + autosStock.get(i).getMotor().getKilometrosRecorridos());
-            System.out.println("Cilindraje del auto: " + autosStock.get(i).getMotor().getCilindrada());
-            System.out.println("Caballos del auto: " + autosStock.get(i).getMotor().getCaballosFuerza());
+        for (Auto auto : autosStock) {
+            System.out.println("--- Reporte del Auto " + autosStock.indexOf(auto) + " ---");
+            auto.mostrarInfo();
+            System.out.println();
         }
     }
 }
