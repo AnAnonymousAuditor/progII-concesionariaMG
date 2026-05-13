@@ -84,10 +84,9 @@ public class Auto {
     }
 
     public void mostrarInfo() {
-        System.out.println("Marca: " + this.marca);
-        System.out.println("Modelo: " + this.modelo);
-        System.out.println("Color: " + this.color);
-        System.out.println("Motor: " + this.motor);
-        System.out.println("Precio: " + this.precio);
+        System.out.println(getMarca() + " " + getModelo() + " (" + getColor() + ")");
+        System.out.println(String.format("%,d", motor.getKilometrosRecorridos()) + " km");
+        System.out.println("$" + String.format("%,.2f", getPrecio()));
+        System.out.println("Motor " + motor.getCilindrada() + "L, " + motor.getCaballosFuerza() + " HP");
     }
 }

@@ -7,14 +7,13 @@ package AutoMG;
 public class Motor {
     private int kilometrosRecorridos;
     private double cilindrada;
-    private double caballosFuerza;
+    private int caballosFuerza;
 
     public boolean requiereCambioAceite() {
-        if (this.kilometrosRecorridos > 100000) return true;
-        else return false;
+        return getKilometrosRecorridos() > 100000;
     }
 
-    public Motor(int km, double caballos, double cilindrada) {
+    public Motor(int km, int caballos, double cilindrada) {
         this.caballosFuerza = caballos;
         this.cilindrada = cilindrada;
         this.kilometrosRecorridos = km;
@@ -34,7 +33,7 @@ public class Motor {
         return cilindrada;
     }
 
-    public double getCaballosFuerza() {
+    public int getCaballosFuerza() {
         return caballosFuerza;
     }
 
@@ -46,7 +45,7 @@ public class Motor {
         this.cilindrada = cilindrada;
     }
 
-    public void setCaballosFuerza(double caballosFuerza) {
+    public void setCaballosFuerza(int caballosFuerza) {
         this.caballosFuerza = caballosFuerza;
     }
 
