@@ -17,6 +17,22 @@ public class AutoFamiliar extends Auto {
         this.cantidadPuertas = cantidadPuertas;
     }
 
+    public int getCantidadAsientos() {
+        return cantidadAsientos;
+    }
+
+    public void setCantidadAsientos(int cantidadAsientos) {
+        this.cantidadAsientos = cantidadAsientos;
+    }
+
+    public int getCantidadPuertas() {
+        return cantidadPuertas;
+    }
+
+    public void setCantidadPuertas(int cantidadPuertas) {
+        this.cantidadPuertas = cantidadPuertas;
+    }
+
     @Override
     public String toString() {
         return super.toString() +

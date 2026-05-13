@@ -17,6 +17,22 @@ public class AutoDeportivo extends Auto {
         this.tieneTurbo = tieneTurbo;
     }
 
+    public double getTiempoAceleracion() {
+        return tiempoAceleracion;
+    }
+
+    public void setTiempoAceleracion(double tiempoAceleracion) {
+        this.tiempoAceleracion = tiempoAceleracion;
+    }
+
+    public boolean isTieneTurbo() {
+        return tieneTurbo;
+    }
+
+    public void setTieneTurbo(boolean tieneTurbo) {
+        this.tieneTurbo = tieneTurbo;
+    }
+
     @Override
     public String toString() {
         return super.toString() +

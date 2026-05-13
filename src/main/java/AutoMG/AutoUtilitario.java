@@ -17,6 +17,22 @@ public class AutoUtilitario extends Auto {
         this.es4x4 = es4x4;
     }
 
+    public int getCapacidadCarga() {
+        return capacidadCarga;
+    }
+
+    public void setCapacidadCarga(int capacidadCarga) {
+        this.capacidadCarga = capacidadCarga;
+    }
+
+    public boolean isEs4x4() {
+        return es4x4;
+    }
+
+    public void setEs4x4(boolean es4x4) {
+        this.es4x4 = es4x4;
+    }
+
     @Override
     public String toString() {
         return super.toString() +
