@@ -127,6 +127,7 @@ public class Main {
         System.out.println("---- AUTOS VENDIDOS ----");
         for (Auto auto : autosVendidos) {
             auto.mostrarInfo();
+            System.out.println();
         }
         System.out.println("------------------------");
 
