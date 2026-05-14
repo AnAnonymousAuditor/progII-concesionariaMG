@@ -8,12 +8,12 @@ import java.util.Scanner;
  */
 public class Administrativo extends Empleado{
     private static final double VALOR_HORA = 1200.0;
-    private double horasExtras;
+    private int horasExtras;
 
     public Administrativo(){
     }
 
-    public Administrativo(double horasExtras, String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
+    public Administrativo(int horasExtras, String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
         super(nombre, apellido, dni, mail, codigoEmpleado, sueldoBasico);
         this.horasExtras = horasExtras;
     }
@@ -22,14 +22,14 @@ public class Administrativo extends Empleado{
     public double getHorasExtras() {
         return horasExtras;
     }
-    public void setHorasExtras(double horasExtras) {
+    public void setHorasExtras(int horasExtras) {
         this.horasExtras = horasExtras;
     }
 
     // METODOS
     @Override
     public double calcularSueldo() {
-        return SUELDO_MINIMO + (horasExtras*VALOR_HORA);
+        return sueldoBasico + (horasExtras*VALOR_HORA);
     }
 
     @Override
@@ -38,15 +38,13 @@ public class Administrativo extends Empleado{
         System.out.println("Horas extra: " + horasExtras);
     }
 
-    public void cargarAuto(ArrayList<Auto> autosStock) {
-        Scanner sc = new Scanner(System.in);
-
+    public void cargarAuto(ArrayList<Auto> autosStock, Scanner num, Scanner str) {
         System.out.println("1) Familiar");
         System.out.println("2) Utilitario");
         System.out.println("3) Deportivo");
         System.out.println("<enter> otro");
-        System.out.print("Tipo de auto a ingresar:");
-        int opt = sc.nextInt();
+        System.out.print("Tipo de auto a ingresar: ");
+        int opt = num.nextInt();
         Auto nuevoAuto = switch (opt) {
             case 1 -> new AutoFamiliar();
             case 2 -> new AutoUtilitario();
@@ -54,7 +52,7 @@ public class Administrativo extends Empleado{
             default -> new Auto();
         };
         System.out.println("Ingrese datos del auto:");
-        nuevoAuto.cargarDatos(sc);
+        nuevoAuto.cargarDatos(num, str);
         autosStock.add(nuevoAuto);
         System.out.println("Auto cargado al stock.");
     }

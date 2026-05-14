@@ -99,22 +99,23 @@ public class Auto {
         System.out.println("Motor " + m.getCilindrada() + "L, " + m.getCaballosFuerza() + " HP");
     }
 
-    public void cargarDatos(Scanner sc) {
+    public void cargarDatos(Scanner num, Scanner str) {
         Motor m = new Motor();
+        setMotor(m);
 
         System.out.print("Marca del auto: ");
-        setMarca(sc.nextLine());
+        setMarca(str.nextLine());
         System.out.print("Modelo del auto: ");
-        setModelo(sc.nextLine());
+        setModelo(str.nextLine());
         System.out.print("Color del auto: ");
-        setColor(sc.nextLine());
+        setColor(str.nextLine());
         System.out.print("Precio del auto: ");
-        setPrecio(sc.nextDouble());
+        setPrecio(num.nextDouble());
         System.out.print("Cilindrada del motor: ");
-        m.setCilindrada(sc.nextDouble());
+        m.setCilindrada(num.nextDouble());
         System.out.print("Potencia del motor: ");
-        m.setCaballosFuerza(sc.nextInt());
-        System.out.print("Km recorridos del auto:");
-        m.setKilometrosRecorridos(sc.nextInt());
+        m.setCaballosFuerza(num.nextInt());
+        System.out.print("Km recorridos del auto: ");
+        m.setKilometrosRecorridos(num.nextInt());
     }
 }

@@ -57,12 +57,11 @@ public class AutoDeportivo extends Auto {
     }
 
     @Override
-    public void cargarDatos(Scanner sc) {
-        super.cargarDatos(sc);
-
+    public void cargarDatos(Scanner num, Scanner str) {
+        super.cargarDatos(num, str);
         System.out.print("Tiempo de Aceleración 0-100 km/h: ");
-        setTiempoAceleracion(sc.nextDouble());
-        System.out.print("Tiene turbo (y/n): ");
-        setTieneTurbo(sc.next().charAt(0) == 'y');
+        setTiempoAceleracion(num.nextDouble());
+        System.out.print("Tiene turbo (s/n): ");
+        setTieneTurbo(str.nextLine().charAt(0) == 's');
     }
 }

@@ -10,7 +10,6 @@ import java.util.Scanner;
  */
 public class Main {
 
-    static final int CANTAUTOS = 3;
     public static void main(String[] args) {
 
         ArrayList<Auto> autos = new ArrayList<>();
@@ -50,7 +49,8 @@ public class Main {
 
         System.out.println("==============================");
 
-        Scanner sc = new Scanner(System.in);
+        Scanner num = new Scanner(System.in);
+        Scanner str = new Scanner(System.in);
         ArrayList<Auto> autosStock = new ArrayList<>();
         ArrayList<Auto> autosVendidos = new ArrayList<>();
         ArrayList<Administrativo> listaAdministrativos = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Main {
         Gerente jefe = new Gerente(15000.0, "Mario", "Santos", 11222333, "mario@auto.com", "G01", 80000.0);
 
         // GERENTE AGREGA A LAS LISTAS DE EMPLEADO
-        Administrativo admin1 = new Administrativo(5.0, "Pepe", "Argento", 22333444, "pepe@auto.com", "A01", 25000.0);
+        Administrativo admin1 = new Administrativo(20, "Pepe", "Argento", 22333444, "pepe@auto.com", "A01", 25000.0);
         Vendedor vend1 = new Vendedor(0, "Luis", "Mauri", 33444555, "luis@auto.com", "V01", 25000.0);
         jefe.cargarAdministrativo(listaAdministrativos, admin1);
         jefe.cargarVendedor(listaVendedores, vend1);
@@ -68,9 +68,9 @@ public class Main {
         System.out.println("------ Cargar Autos ------");
         boolean listo = false;
         while (!listo) {
-            admin1.cargarAuto(autosStock);
-            System.out.println("Desea agregar otro auto? (y/n)");
-            listo = sc.next().charAt(0) == 'n';
+            admin1.cargarAuto(autosStock, num, str);
+            System.out.println("Desea agregar otro auto? (s/n)");
+            listo = str.nextLine().charAt(0) == 'n';
         }
 
         //SIMULAR VENTA - MUESTA AUTOS Y ELIGE
@@ -80,9 +80,10 @@ public class Main {
 
             int i = 1;
             for (Auto auto : autosStock) {
-                System.out.println((i) + ". " + auto.getMarca() + auto.getModelo());
+                System.out.println((i) + ". " + auto.getMarca() + " " + auto.getModelo());
+                i++;
             }
-            int opcion = sc.nextInt() - 1;
+            int opcion = num.nextInt() - 1;
 
             if ((opcion) >= 0 && (opcion) < autosStock.size()) {
                 Auto elegido = autosStock.get((opcion));
@@ -91,23 +92,23 @@ public class Main {
                 System.out.println("Opción inválida.");
             }
 
-            System.out.println("Desea vender otro auto? (y/n)");
-            listo = sc.next().charAt(0) == 'n';
+            System.out.println("Desea vender otro auto? (s/n)");
+            listo = str.nextLine().charAt(0) == 'n';
         }
 
         System.out.println("\n--- AUTOS STOCK ------");
         for (Auto auto : autosStock) {
             auto.mostrarInfo();
+            System.out.println();
         }
         System.out.println("------------------------");
 
         // SIMULAR AVANCE
         int km;
         for (Auto auto : autosStock) {
-            System.out.println("Ingresar nuevos km recorridos por " + auto.getMarca() + auto.getModelo() + ":");
-            km = sc.nextInt();
+            System.out.println("Ingresar nuevos km recorridos por " + auto.getMarca() + " " + auto.getModelo() + ":");
+            km = num.nextInt();
             auto.avanzar(km);
-            sc.nextLine();
         }
 
         System.out.println("\n--- AUTOS STOCK ------");
@@ -122,6 +123,7 @@ public class Main {
         }
         System.out.println("------------------------");
 
+        System.out.println("\n");
         System.out.println("==== REPORTE DETALLADO DE EMPLEADOS ====");
 
         System.out.println("GERENCIA");

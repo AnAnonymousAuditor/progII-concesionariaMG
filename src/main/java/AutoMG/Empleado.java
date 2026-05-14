@@ -5,8 +5,6 @@ package AutoMG;
  */
 public abstract class Empleado {
 
-    protected static final double SUELDO_MINIMO = 25000.0;
-
     protected String nombre;
     protected String apellido;
     protected int dni;

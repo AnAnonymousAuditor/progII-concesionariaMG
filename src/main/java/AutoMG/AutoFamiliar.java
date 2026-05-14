@@ -52,12 +52,11 @@ public class AutoFamiliar extends Auto {
     }
 
     @Override
-    public void cargarDatos(Scanner sc) {
-        super.cargarDatos(sc);
-
+    public void cargarDatos(Scanner num, Scanner str) {
+        super.cargarDatos(num, str);
         System.out.print("Cantidad de asientos: ");
-        setCantidadAsientos(sc.nextInt());
+        setCantidadAsientos(num.nextInt());
         System.out.print("Cantidad de puertas: ");
-        setCantidadPuertas(sc.nextInt());
+        setCantidadPuertas(num.nextInt());
     }
 }

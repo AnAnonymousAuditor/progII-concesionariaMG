@@ -57,12 +57,11 @@ public class AutoUtilitario extends Auto {
     }
 
     @Override
-    public void cargarDatos(Scanner sc) {
-        super.cargarDatos(sc);
-
+    public void cargarDatos(Scanner num, Scanner str) {
+        super.cargarDatos(num, str);
         System.out.print("Capacidad de carga: ");
-        setCapacidadCarga(sc.nextInt());
-        System.out.print("Es 4x4 (y/n)): ");
-        setEs4x4(sc.next().charAt(0) == 'y');
+        setCapacidadCarga(num.nextInt());
+        System.out.print("Es 4x4 (s/n)): ");
+        setEs4x4(str.nextLine().charAt(0) == 's');
     }
 }

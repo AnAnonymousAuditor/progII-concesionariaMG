@@ -28,7 +28,7 @@ public class Vendedor extends Empleado{
     // METODOS
     @Override
     public double calcularSueldo() {
-        return cantVentas*VALOR_COMISION;
+        return sueldoBasico + cantVentas*VALOR_COMISION;
     }
 
     @Override
