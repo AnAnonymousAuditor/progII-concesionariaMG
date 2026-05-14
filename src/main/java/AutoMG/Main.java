@@ -56,12 +56,10 @@ public class Main {
         ArrayList<Administrativo> listaAdministrativos = new ArrayList<>();
         ArrayList<Vendedor> listaVendedores = new ArrayList<>();
 
-        //CARGAR GERENTE PARA CARGAR EMPLEADOS
         Gerente jefe = new Gerente(15000.0, "Mario", "Santos", 11222333, "mario@auto.com", "G01", 80000.0);
-
-        // GERENTE AGREGA A LAS LISTAS DE EMPLEADO
         Administrativo admin1 = new Administrativo(20, "Pepe", "Argento", 22333444, "pepe@auto.com", "A01", 25000.0);
         Vendedor vend1 = new Vendedor(0, "Luis", "Mauri", 33444555, "luis@auto.com", "V01", 25000.0);
+
         jefe.cargarAdministrativo(listaAdministrativos, admin1);
         jefe.cargarVendedor(listaVendedores, vend1);
 
@@ -72,8 +70,11 @@ public class Main {
             System.out.println("Desea agregar otro auto? (s/n)");
             listo = str.nextLine().charAt(0) == 'n';
         }
+        System.out.println("--------------------------");
 
-        //SIMULAR VENTA - MUESTA AUTOS Y ELIGE
+        System.out.println();
+
+        System.out.println("----- Vender Autos ------");
         listo = false;
         while (!listo) {
             System.out.println("Seleccione el número de auto a vender:");
@@ -95,13 +96,16 @@ public class Main {
             System.out.println("Desea vender otro auto? (s/n)");
             listo = str.nextLine().charAt(0) == 'n';
         }
+        System.out.println("-------------------------");
 
-        System.out.println("\n--- AUTOS STOCK ------");
+        System.out.println("\n");
+
+        System.out.println("----- AUTOS STOCK -----");
         for (Auto auto : autosStock) {
             auto.mostrarInfo();
             System.out.println();
         }
-        System.out.println("------------------------");
+        System.out.println("-----------------------");
 
         // SIMULAR AVANCE
         int km;
@@ -111,31 +115,40 @@ public class Main {
             auto.avanzar(km);
         }
 
-        System.out.println("\n--- AUTOS STOCK ------");
+        System.out.println("----- AUTOS STOCK -----");
         for (Auto auto : autosStock) {
             auto.mostrarInfo();
+            System.out.println();
         }
-        System.out.println("------------------------");
+        System.out.println("-----------------------");
 
-        System.out.println("\n--- AUTOS VENDIDOS ---");
+        System.out.println();
+
+        System.out.println("---- AUTOS VENDIDOS ----");
         for (Auto auto : autosVendidos) {
             auto.mostrarInfo();
         }
         System.out.println("------------------------");
 
         System.out.println("\n");
-        System.out.println("==== REPORTE DETALLADO DE EMPLEADOS ====");
 
-        System.out.println("GERENCIA");
+        System.out.println("==== REPORTE DETALLADO DE EMPLEADOS ====");
+        System.out.println("--- GERENCIA ---");
         jefe.mostrarInformacion();
 
-        System.out.println("\nADMINISTRATIVOS");
+        System.out.println();
+
+        System.out.println("--- ADMINISTRATIVOS ---");
         for (Administrativo a : listaAdministrativos) {
             a.mostrarInformacion();
         }
-        System.out.println("\nVENDEDORES");
+
+        System.out.println();
+
+        System.out.println("--- VENDEDORES ---");
         for (Vendedor v : listaVendedores) {
             v.mostrarInformacion();
         }
+        System.out.println("========================================");
     }
 }

@@ -18,7 +18,6 @@ public class Administrativo extends Empleado{
         this.horasExtras = horasExtras;
     }
 
-    //GETTERS SETTERS
     public double getHorasExtras() {
         return horasExtras;
     }
@@ -26,7 +25,6 @@ public class Administrativo extends Empleado{
         this.horasExtras = horasExtras;
     }
 
-    // METODOS
     @Override
     public double calcularSueldo() {
         return sueldoBasico + (horasExtras*VALOR_HORA);

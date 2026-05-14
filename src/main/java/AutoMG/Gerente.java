@@ -15,7 +15,6 @@ public class Gerente extends Empleado{
         super(nombre, apellido, dni, mail, codigoEmpleado, sueldoBasico);
         this.bonoAdicional = bonoAdicional;
     }
-    //GETTERS SETTERS
     public double getBonoAdicional() {
         return bonoAdicional;
     }
@@ -23,7 +22,6 @@ public class Gerente extends Empleado{
         this.bonoAdicional = bonoAdicional;
     }
 
-    //METODOS
     @Override
     public double calcularSueldo() {
         return getSueldoBasico() + bonoAdicional;

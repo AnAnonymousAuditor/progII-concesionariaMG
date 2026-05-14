@@ -14,7 +14,6 @@ public abstract class Empleado {
 
     public Empleado(){}
 
-    //CONSTRUCTOR
     public Empleado(String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,7 +23,6 @@ public abstract class Empleado {
         this.sueldoBasico = sueldoBasico;
     }
 
-    //GETTERS Y SETTERS
     public String getNombre() {
         return nombre;
     }
@@ -62,7 +60,6 @@ public abstract class Empleado {
         this.sueldoBasico = sueldoBasico;
     }
 
-    //Metodos
     public abstract double calcularSueldo();
 
     public void mostrarInformacion() {

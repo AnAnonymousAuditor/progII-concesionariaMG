@@ -17,7 +17,6 @@ public class Vendedor extends Empleado{
         this.cantVentas = cantVentas;
     }
 
-    //GETTERS SETTERS
     public int getCantVentas() {
         return cantVentas;
     }
@@ -25,7 +24,6 @@ public class Vendedor extends Empleado{
         this.cantVentas = cantVentas;
     }
 
-    // METODOS
     @Override
     public double calcularSueldo() {
         return sueldoBasico + cantVentas*VALOR_COMISION;
