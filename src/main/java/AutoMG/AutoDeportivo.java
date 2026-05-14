@@ -10,9 +10,11 @@ public class AutoDeportivo extends Auto {
     private double tiempoAceleracion; // Tiempo en segundos de 0 a 100 km/h
     private boolean tieneTurbo;
 
-    public AutoDeportivo() {}
+    public AutoDeportivo() {
+    }
 
-    public AutoDeportivo(double tiempoAceleracion, boolean tieneTurbo, String marca, String modelo, String color, Motor motor, double precio) {
+    public AutoDeportivo(double tiempoAceleracion, boolean tieneTurbo, String marca, String modelo, String color,
+            Motor motor, double precio) {
         super(marca, modelo, color, motor, precio);
         this.tiempoAceleracion = tiempoAceleracion;
         this.tieneTurbo = tieneTurbo;
@@ -45,14 +47,15 @@ public class AutoDeportivo extends Auto {
     @Override
     public String toString() {
         return super.toString() +
-            "\ntiempoAceleracion=" + tiempoAceleracion +
-            "\ntieneTurbo=" + tieneTurbo;
+                "\ntiempoAceleracion=" + tiempoAceleracion +
+                "\ntieneTurbo=" + tieneTurbo;
     }
 
     @Override
     public void mostrarInfo() {
         super.mostrarInfo();
-        if (isTieneTurbo()) System.out.println("Con turbo");
+        if (isTieneTurbo())
+            System.out.println("Con turbo");
         System.out.println(getTiempoAceleracion() + "s de 0 a 100 km/h");
     }
 

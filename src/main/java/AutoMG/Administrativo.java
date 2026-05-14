@@ -6,14 +6,15 @@ import java.util.Scanner;
 /**
  * @author Gabi
  */
-public class Administrativo extends Empleado{
+public class Administrativo extends Empleado {
     private static final double VALOR_HORA = 1200.0;
     private int horasExtras;
 
-    public Administrativo(){
+    public Administrativo() {
     }
 
-    public Administrativo(int horasExtras, String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
+    public Administrativo(int horasExtras, String nombre, String apellido, int dni, String mail, String codigoEmpleado,
+            double sueldoBasico) {
         super(nombre, apellido, dni, mail, codigoEmpleado, sueldoBasico);
         this.horasExtras = horasExtras;
     }
@@ -21,13 +22,14 @@ public class Administrativo extends Empleado{
     public double getHorasExtras() {
         return horasExtras;
     }
+
     public void setHorasExtras(int horasExtras) {
         this.horasExtras = horasExtras;
     }
 
     @Override
     public double calcularSueldo() {
-        return sueldoBasico + (horasExtras*VALOR_HORA);
+        return sueldoBasico + (horasExtras * VALOR_HORA);
     }
 
     @Override

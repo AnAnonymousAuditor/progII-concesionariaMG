@@ -1,13 +1,12 @@
 package AutoMG;
 
+import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 /**
  *
  * @author manuel
  */
-import javax.swing.JOptionPane;
-import java.util.Scanner;
-
 public class Auto {
 
     private String marca;
@@ -22,11 +21,10 @@ public class Auto {
 
         if (motor.requiereCambioAceite()) {
             JOptionPane.showMessageDialog(
-                null,
-                "Requiere cambio de aceite",
-                getMarca() + " " + getModelo(),
-                JOptionPane.WARNING_MESSAGE
-            );
+                    null,
+                    "Requiere cambio de aceite",
+                    getMarca() + " " + getModelo(),
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 

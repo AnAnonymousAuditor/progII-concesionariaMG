@@ -10,9 +10,11 @@ public class AutoUtilitario extends Auto {
     private int capacidadCarga; // kg
     private boolean es4x4;
 
-    public AutoUtilitario() {}
+    public AutoUtilitario() {
+    }
 
-    public AutoUtilitario(int capacidadCarga, boolean es4x4, String marca, String modelo, String color, Motor motor, double precio) {
+    public AutoUtilitario(int capacidadCarga, boolean es4x4, String marca, String modelo, String color, Motor motor,
+            double precio) {
         super(marca, modelo, color, motor, precio);
         this.capacidadCarga = capacidadCarga;
         this.es4x4 = es4x4;
@@ -45,14 +47,15 @@ public class AutoUtilitario extends Auto {
     @Override
     public String toString() {
         return super.toString() +
-            "\ncapacidadCarga=" + capacidadCarga +
-            "\n es4x4=" + es4x4;
+                "\ncapacidadCarga=" + capacidadCarga +
+                "\n es4x4=" + es4x4;
     }
 
     @Override
     public void mostrarInfo() {
         super.mostrarInfo();
-        if (es4x4) System.out.println("4x4");
+        if (es4x4)
+            System.out.println("4x4");
         System.out.println("Hasta " + getCapacidadCarga() + "kg de carga");
     }
 

@@ -52,8 +52,8 @@ public class Motor {
     @Override
     public String toString() {
         return "Motor=" +
-            "\n\tkilometrosRecorridos=" + kilometrosRecorridos +
-            "\n\tcilindrada=" + cilindrada +
-            "\n\tcaballosFuerza=" + caballosFuerza;
+                "\n\tkilometrosRecorridos=" + kilometrosRecorridos +
+                "\n\tcilindrada=" + cilindrada +
+                "\n\tcaballosFuerza=" + caballosFuerza;
     }
 }

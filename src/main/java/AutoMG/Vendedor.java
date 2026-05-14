@@ -5,14 +5,15 @@ import java.util.ArrayList;
 /**
  * @author Gabi
  */
-public class Vendedor extends Empleado{
+public class Vendedor extends Empleado {
     private static final double VALOR_COMISION = 5000.0;
     private int cantVentas;
 
-    public Vendedor(){
+    public Vendedor() {
     }
 
-    public Vendedor(int cantVentas, String nombre, String apellido, int dni, String mail, String codigoEmpleado, double sueldoBasico) {
+    public Vendedor(int cantVentas, String nombre, String apellido, int dni, String mail, String codigoEmpleado,
+            double sueldoBasico) {
         super(nombre, apellido, dni, mail, codigoEmpleado, sueldoBasico);
         this.cantVentas = cantVentas;
     }
@@ -20,13 +21,14 @@ public class Vendedor extends Empleado{
     public int getCantVentas() {
         return cantVentas;
     }
+
     public void setCantVentas(int cantVentas) {
         this.cantVentas = cantVentas;
     }
 
     @Override
     public double calcularSueldo() {
-        return sueldoBasico + cantVentas*VALOR_COMISION;
+        return sueldoBasico + cantVentas * VALOR_COMISION;
     }
 
     @Override
